@@ -1,4 +1,6 @@
 .swiper {
+  position: relative;
+
   &__title {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,8 +12,6 @@
   }
 
   &__container {
-    position: relative;
-
     height: 800px;
     border: 2px solid tomato;
   }

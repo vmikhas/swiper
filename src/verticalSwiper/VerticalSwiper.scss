@@ -1,0 +1,82 @@
+.vertical-swiper {
+  position: relative;
+  
+  &__title {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    font-size: 50px;
+    text-align: center;
+    background-color: grey;
+    margin-top: 150px;
+    padding: 20px 0 30px;
+  }
+
+  &__container {
+    height: 950px;
+    border: 2px solid tomato;
+  }
+
+  &__image {
+    width: min-content;
+    height: 750px;
+    margin: 100px auto 100px;
+  }
+
+  &__button {
+    position: absolute;
+    left: 50%;
+    z-index: 50;
+
+    height: 50px;
+    cursor: pointer;
+
+    &_prev {
+      top: 145px;
+      transform: translatex(-50%) rotate(270deg);
+    }
+
+    &_next {
+      bottom: 25px;
+      transform: translateX(-50%) rotate(90deg);
+    }
+  }
+
+  &__pagination {
+    position: absolute;
+    top: 50%;
+    right: 35px;
+    z-index: 50;
+    transform: translateY(-30%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  &__item {
+    font-size: 24px;
+    user-select: none;
+    cursor: pointer;
+
+    &_prev,
+    &_next {
+      width: 145px;
+      text-align: center;
+    }
+
+    &_active {
+      font-size: 45px;
+      color: tomato;
+    }
+
+    .disabled {
+      color: gainsboro;
+    }
+  }
+
+  &__link {
+    padding: 5px 15px;
+  }
+}
