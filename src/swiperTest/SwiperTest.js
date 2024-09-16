@@ -18,7 +18,7 @@ export default function SwiperTest({images, arrow}) {
       <Swiper
         className={"swiper__container"}
         slidesPerView={1}
-        loop={true}
+        loop
         pagination={{clickable: true}}
         onSwiper={(swiper) => {
           swiper.params.navigation.prevEl = prevRef.current;

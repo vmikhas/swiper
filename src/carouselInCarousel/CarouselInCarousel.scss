@@ -1,4 +1,6 @@
 .carousel {
+  position: relative;
+  
   &__title {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,5 +12,42 @@
     padding: 20px 0 30px;
   }
 
+  &__item {
+    min-height: 32vh;
+  }
 
+  &__subtitle {
+    padding: 4vw 24vw 2vw;
+    font-family: 'Fira Code Medium', sans-serif;
+    font-size: 35px;
+    user-select: none;
+  }
+
+  &__text {
+    padding: 0 15vw;
+    font-family: "JetBrains Mono Medium", sans-serif;
+    font-size: 23px;
+    line-height: 120%;
+    letter-spacing: 0.01em;
+    user-select: none;
+  }
+  
+  &__button {
+    position: absolute;
+    top: 50%;
+    z-index: 50;
+
+    height: 50px;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+    &_prev {
+      left: 5vw;
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    &_next {
+      right: 5vw;
+    }
+  }
 }

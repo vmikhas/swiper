@@ -1,5 +1,5 @@
 import './style.scss';
-import {swiperContent, verticalSwiperContent} from "./constants/copyright";
+import { carouselInCarousel, swiperContent, verticalSwiperContent } from './constants/copyright';
 import SwiperTest from "./swiperTest/SwiperTest";
 import VerticalSwiper from "./verticalSwiper/VerticalSwiper";
 import CarouselInCarousel from "./carouselInCarousel/CarouselInCarousel";
@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <SwiperTest {...swiperContent} />
       <VerticalSwiper {...verticalSwiperContent} />
-      <CarouselInCarousel />
+      <CarouselInCarousel {...carouselInCarousel} />
     </div>
   );
 }
