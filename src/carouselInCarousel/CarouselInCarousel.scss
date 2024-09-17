@@ -1,5 +1,9 @@
 .carousel {
   position: relative;
+
+  &__container {
+    border: 2px solid tomato;
+  }
   
   &__title {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -30,6 +34,23 @@
     line-height: 120%;
     letter-spacing: 0.01em;
     user-select: none;
+  }
+
+  &__images-container {
+    height: 50vh;
+    margin: 5vh 0 0;
+
+    .swiper-pagination-bullet {
+      width: 20px;
+      height: 20px;
+      background-color: purple;
+    }
+  }
+
+  &__image {
+    width: max-content;
+    height: 45vh;
+    margin: 0 auto;
   }
   
   &__button {

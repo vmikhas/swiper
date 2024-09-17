@@ -26,7 +26,8 @@ export default function SwiperTest({images, arrow}) {
           swiper.navigation.init();
           swiper.navigation.update();
         }}
-        modules={[Pagination, Navigation]}>
+        modules={[Pagination, Navigation]}
+      >
         {images && images.map((item, id) => (
           <SwiperSlide className={"swiper__slide"} key={id + 1}>
             <div className={`swiper__image swiper__image_${id + 1}`} key={id + 1}>

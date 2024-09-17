@@ -1,12 +1,20 @@
 import Picture from "../constants/Picture";
 import parse from "html-react-parser";
-import { useRef } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import {useRef, useState} from "react";
+import {Swiper, SwiperSlide} from "swiper/react";
+import {Navigation, Pagination} from "swiper/modules";
+import "swiper/css/pagination";
 
-export default function CarouselInCarousel({ lists, arrow, listImages }) {
+
+export default function CarouselInCarousel({lists, arrow, listImages}) {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const [activeType, setActiveType] = useState(lists[0].type);
+
+  const handleSlideChange = (swiper) => {
+    const currentIndex = swiper.realIndex;
+    setActiveType(lists[currentIndex].type);
+  };
 
   return (
     <div className={"carousel"}>
@@ -21,26 +29,30 @@ export default function CarouselInCarousel({ lists, arrow, listImages }) {
           swiper.navigation.init();
           swiper.navigation.update();
         }}
+        onSlideChange={handleSlideChange}
         modules={[Navigation]}
       >
-        {lists.map(({ subtitle, text }, index) => (
+        {lists.map(({subtitle, text, type}, index) => (
           <SwiperSlide key={index + 1}>
             <div className={`carousel__item carousel__item_${index + 1}`} key={index}>
               <h2 className={"carousel__subtitle"}>{parse(subtitle)}</h2>
               <p className={"carousel__text"}>{parse(text)}</p>
 
-              {/* Вложенный карусель для изображений */}
-              <div className={`carousel__images-container carousel__images-container_${index + 1}`}>
-                {Object.keys(listImages).map((category, categoryIndex) => (
-                  <div className={`carousel__category carousel__category_${category}`} key={categoryIndex}>
-                    {listImages[category].map((item, id) => (
-                      <div className={`carousel__image carousel__image_${id + 1}`} key={id}>
-                        <Picture {...item.image} />
-                      </div>
-                    ))}
-                  </div>
+              <Swiper
+                className={"carousel__images-container"}
+                slidesPerView={1}
+                loop
+                pagination={{clickable: true}}
+                modules={[Pagination]}
+              >
+                {listImages[type]?.map((item, id) => (
+                  <SwiperSlide key={id + 1}>
+                    <div className={`carousel__image carousel__image_${id + 1}`} key={id}>
+                      <Picture {...item.image} />
+                    </div>
+                  </SwiperSlide>
                 ))}
-              </div>
+              </Swiper>
             </div>
           </SwiperSlide>
         ))}
