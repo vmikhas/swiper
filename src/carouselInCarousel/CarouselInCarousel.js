@@ -10,6 +10,7 @@ export default function CarouselInCarousel({lists, arrow, listImages}) {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const [activeType, setActiveType] = useState(lists[0].type);
+  console.log("activeType --- > " + activeType);
 
   const handleSlideChange = (swiper) => {
     const currentIndex = swiper.realIndex;

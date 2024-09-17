@@ -1,0 +1,39 @@
+.one-controls {
+  position: relative;
+
+  &__container {
+    border: 2px solid tomato;
+  }
+
+  &__desc {
+    padding: 3vw 10vw;
+    font-family: "Lucida Fax", "Segoe Print", serif;
+    font-size: 20px;
+    line-height: 130%;
+  }
+
+  &__image {
+    width: max-content;
+    height: 40vh;
+    margin: 0 auto;
+  }
+
+  &__button {
+    position: absolute;
+    top: 22%;
+    z-index: 50;
+
+    height: 50px;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+    &_prev {
+      left: 5vw;
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    &_next {
+      right: 5vw;
+    }
+  }
+}
